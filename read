@@ -1,0 +1,16 @@
+-- llena el file requirements.txt con las dependencias y versiones del proyecto
+pip freeze > "requirements.txt"
+
+-- el que descarga el proyecto debe correr
+pip install -r ".\requirements.txt"
+
+-- para ver las dependencias instaladas
+pip list
+
+
+--
+docker build -t dockerpy3 .
+docker run -d -p 3307:3306 dockerpy3
+
+-- para ver los logs
+docker logs <container_id>
