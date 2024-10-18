@@ -33,7 +33,6 @@ logger.info("Conectando a BD")
 connection_string = f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 engine = create_engine(connection_string)
 
-logger.info("Conexion a BD success")
 
 #excel_file  = '.\\resources\\clientes_excel_2.xlsx'
 excel_file = './resources/clientes_excel_2.xlsx'
