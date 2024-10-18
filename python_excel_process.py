@@ -79,7 +79,7 @@ try:
     logger.info("Proceso completado exitosamente.")
     
 except Exception as e:
-    logger.info(f"Error al procesar el archivo o insertar datos: {e}")
+    logger.error(f"Error al procesar el archivo o insertar datos: {e}")
 
 
 
