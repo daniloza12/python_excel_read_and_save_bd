@@ -12,5 +12,8 @@ pip list
 docker build -t dockerpy3 .
 docker run -d -p 3307:3306 dockerpy3
 
+-- listar imagenes
+docker ps -a
+
 -- para ver los logs
 docker logs <container_id>
