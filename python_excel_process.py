@@ -4,19 +4,17 @@ import logging, sys
 from datetime import datetime
 from sqlalchemy import create_engine
 
-
-logging.info("Empezando ::: Empezando")
-
-
 h = [
     logging.FileHandler('./logs/log.log'), 
     logging.StreamHandler(stream=sys.stdout),
 ]
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
     handlers=h,
 )
+
 logger = logging.getLogger(__name__)
 
 # Credenciales de la BD
@@ -24,20 +22,23 @@ DATABASE_TYPE = 'mysql'
 DBAPI = 'pymysql'
 USER = 'root2'
 PASSWORD = '123456'
-# HOST = 'localhost'
-HOST = 'host.docker.internal'
+HOST = 'localhost'
+# HOST = 'host.docker.internal'
 PORT = '3306'
 DATABASE = 'db_pam_cliente'
 DB_TABLE = 'tbl_cliente'
 
 # Crear la cadena de conexión
+print("conectando inicio")
 logger.info("Conectando a BD")
 connection_string = f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 engine = create_engine(connection_string)
+print("conectando inicio")
+
 logger.info("Conexion a BD success")
 
-# excel_file  = '.\\resources\\clientes_excel_2.xlsx'
-excel_file = './resources/clientes_excel_2.xlsx'
+excel_file  = '.\\resources\\clientes_excel_2.xlsx'
+#excel_file = './resources/clientes_excel_2.xlsx'
 
 # columnas de la tabla de la bd
 # dni	cliente_id	telefono	correo	estado	password	rol	apellidos	nombre	direccion
@@ -82,9 +83,4 @@ try:
     
 except Exception as e:
     print(f"Error al procesar el archivo o insertar datos: {e}")
-
-
-
-
-
 
